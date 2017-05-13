@@ -49,9 +49,16 @@ export default class App extends Component {
     });
   }
 
-  handleVideoClick(video) {
-    this.setState({
-      video: video
+  // videos array: put (video) in [0], put [0] in (video) spot
+  handleVideoClick(video, index) {
+    this.setState(function(prevState) {
+      var videos = prevState.videos.slice();
+      videos[index] = videos[0];
+      videos[0] = video;
+      return {
+        videos: videos,
+        video: video
+      };
     });
   }
 
@@ -66,7 +73,8 @@ export default class App extends Component {
           <div className="col-1"></div>
 
           <VideoPlayer video={this.state.video} />
-          <VideoColumn videos={this.state.videos} />
+          <VideoColumn videos={this.state.videos}
+            handleVideoClick={this.handleVideoClick} />
 
           <div className="col-1"></div>
         </main>

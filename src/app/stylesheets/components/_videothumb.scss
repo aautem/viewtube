@@ -1,6 +1,6 @@
 .video-thumb {
   margin: auto;
-  background-color: #969696;
+  background-color: white;
   text-align: left;
 }
 
@@ -9,4 +9,14 @@
   height: auto;
   display: block;
   margin: auto;
+}
+
+.video-thumb h5 {
+  font-size: 0.9em;
+  margin: 5px 0 -10px 0;
+}
+
+.video-thumb p {
+  font-size: 0.8em;
+  margin-bottom: -10px;
 }

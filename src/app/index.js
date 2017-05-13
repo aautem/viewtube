@@ -9,7 +9,8 @@ import App from './components/App.jsx';
       return response.json();
     }
   }).then(function(key) {
-    key = key || window.YOUTUBE_KEY;
     ReactDOM.render(<App YOUTUBE_API_KEY={key} />, document.getElementById('app'));
   });
 })();
+
+// ReactDOM.render(<App YOUTUBE_API_KEY={window.YOUTUBE_KEY} />, document.getElementById('app'));

@@ -4,13 +4,21 @@ import VideoThumb from './VideoThumb.jsx';
 const VideoColumn = (props) => {
   return (
     <div className="video-column col-4">
-      <VideoThumb video={props.videos[1]} />
+      <VideoThumb video={props.videos[1]}
+        handleVideoClick={props.handleVideoClick}
+        index={1} />
       <div className="row"><br /></div>
-      <VideoThumb video={props.videos[2]} />
+      <VideoThumb video={props.videos[2]}
+        handleVideoClick={props.handleVideoClick}
+        index={2} />
       <div className="row"><br /></div>
-      <VideoThumb video={props.videos[3]} />
+      <VideoThumb video={props.videos[3]}
+        handleVideoClick={props.handleVideoClick}
+        index={3} />
       <div className="row"><br /></div>
-      <VideoThumb video={props.videos[4]} />
+      <VideoThumb video={props.videos[4]}
+        handleVideoClick={props.handleVideoClick}
+        index={4} />
     </div>
   );
 };

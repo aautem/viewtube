@@ -59,7 +59,7 @@ const sampleData = [{
         height: 360
       }
     },
-    channelTitle: '',
+    channelTitle: 'happydayz',
     liveBroadcastContent: 'none'
   }
 }, {
@@ -91,7 +91,7 @@ const sampleData = [{
         height: 360
       }
     },
-    channelTitle: '',
+    channelTitle: 'sugarcandy',
     liveBroadcastContent: 'none'
   }
 }, {
@@ -155,7 +155,7 @@ const sampleData = [{
         height: 360
       }
     },
-    channelTitle: '',
+    channelTitle: 'stinkypete',
     liveBroadcastContent: 'none'
   }
 }];
