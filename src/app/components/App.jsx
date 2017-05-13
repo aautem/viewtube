@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import sampleData from './../data/sampleData.js';
 
 import Nav from './Nav.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
@@ -9,8 +10,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      video: {},
-      videos: []
+      video: sampleData[0],
+      videos: sampleData
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
   }
