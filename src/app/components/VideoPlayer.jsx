@@ -2,14 +2,13 @@ import React from 'react';
 import Video from './Video.jsx';
 import VideoInfo from './VideoInfo.jsx';
 
-import videoData from './../data/videoData.js';
-
 const VideoPlayer = (props) => {
+  console.log('VideoPlayer Props:', props);
   return (
     <div className="col-6">
-      <Video video={videoData[0]} />
+      <Video video={props.video} />
       <div className="row"><br /></div>
-      <VideoInfo video={videoData[0]} />
+      <VideoInfo video={props.video} />
     </div>
   );
 };

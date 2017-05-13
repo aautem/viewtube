@@ -32,7 +32,7 @@ export default class App extends Component {
     $.ajax('https://www.googleapis.com/youtube/v3/search', {
       data: {
         part: 'snippet',
-        maxResults: options.max || 4,
+        maxResults: options.max || 5,
         q: options.query,
         type: 'video',
         videoEmbeddable: true,
@@ -64,8 +64,8 @@ export default class App extends Component {
         <main className="row">
           <div className="col-1"></div>
 
-          <VideoPlayer />
-          <VideoColumn />
+          <VideoPlayer video={this.state.video} />
+          <VideoColumn videos={this.state.videos} />
 
           <div className="col-1"></div>
         </main>
