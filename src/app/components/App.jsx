@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
-import YOUTUBE_API_KEY from './../data/youtube.js';
 
 import Nav from './Nav.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import VideoColumn from './VideoColumn.jsx';
 
+let YOUTUBE_API_KEY;
+(function() {
+  return fetch('https://view-tube.herokuapp.com/api/keys/youtube').then(function(response) {
+    if (response.ok) {
+      return response.json();
+    }
+  }).then(function(key) {
+    console.log('API Key:', key);
+    YOUTUBE_API_KEY = key;
+  });
+})();
+
 setTimeout(function() {
-  console.log(YOUTUBE_API_KEY);
+  console.log('Checking Key:', YOUTUBE_API_KEY);
 }, 8000);
 
 export default class App extends Component {
