@@ -10,25 +10,14 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      page: 'results',
       video: sampleData[0],
       videos: sampleData
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
     this.searchYouTube = this.searchYouTube.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
-
-  // componentDidMount() {
-  //   console.log('*** Initializing App ***');
-  //   this.searchYouTube({
-  //     query: 'Tracy McGrady',
-  //     key: this.props.YOUTUBE_API_KEY
-  //   }, (videos) => {
-  //     this.setState({
-  //       videos: videos,
-  //       video: videos[0]
-  //     });
-  //   });
-  // }
 
   searchYouTube(query) {
     var that = this;
@@ -67,13 +56,21 @@ export default class App extends Component {
     });
   }
 
+  changePage(page) {
+    this.setState({
+      page: page
+    });
+  }
+
   render() {
     console.log('App Props:', this.props);
     console.log('App State:', this.state);
     return (
       <div className="container">
-        <Nav searchYouTube={this.searchYouTube} />
+        <Nav searchYouTube={this.searchYouTube}
+          changePage={this.changePage} />
 
+        {this.state.page === 'results' &&
         <main className="row">
           <div className="col-1"></div>
 
@@ -82,7 +79,7 @@ export default class App extends Component {
             handleVideoClick={this.handleVideoClick} />
 
           <div className="col-1"></div>
-        </main>
+        </main>}
 
       </div>
     );
