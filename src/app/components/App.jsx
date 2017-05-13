@@ -29,14 +29,12 @@ export default class App extends Component {
 
   searchYouTube(options, callback) {
     return fetch('https://www.googleapis.com/youtube/v3/search', {
-      data: {
-        part: 'snippet',
-        maxResults: options.max || 4,
-        q: options.query,
-        type: 'video',
-        videoEmbeddable: true,
-        key: options.key
-      }
+      part: 'snippet',
+      maxResults: options.max || 4,
+      q: options.query,
+      type: 'video',
+      videoEmbeddable: true,
+      key: options.key
     }).then(function(response) {
       return response.json();
     }).then(function(videos) {
