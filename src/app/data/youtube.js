@@ -8,6 +8,7 @@ const endpoint = 'https://view-tube.herokuapp.com/api/keys/youtube';
       return response.json();
     }
   }).then(function(key) {
+    console.log('API Key:', key);
     YOUTUBE_API_KEY = key;
   });
 })();
