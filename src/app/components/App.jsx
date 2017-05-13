@@ -10,7 +10,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'results',
+      page: 'home',
       video: sampleData[0],
       videos: sampleData
     };
@@ -33,6 +33,7 @@ export default class App extends Component {
       success: (data, textStatus, jqXHR) => {
         console.log('Success:', data.items);
         that.setState({
+          page: 'results',
           videos: data.items,
           video: data.items[0]
         });
@@ -69,6 +70,29 @@ export default class App extends Component {
       <div className="container">
         <Nav searchYouTube={this.searchYouTube}
           changePage={this.changePage} />
+
+        {this.state.page === 'home' &&
+        <div className="row">
+          <div className="col-1"></div>
+          <div className="col-10">
+            ROW ONE
+          </div>
+          <div className="col-1"></div>
+        </div>
+        <div className="row">
+          <div className="col-1"></div>
+          <div className="col-10">
+            ROW TWO
+          </div>
+          <div className="col-1"></div>
+        </div>
+        <div className="row">
+          <div className="col-1"></div>
+          <div className="col-10">
+            ROW THREE
+          </div>
+          <div className="col-1"></div>
+        </div>}
 
         {this.state.page === 'results' &&
         <main className="row">
