@@ -8,7 +8,7 @@ import VideoColumn from './VideoColumn.jsx';
 const YOUTUBE_API_KEY = getYouTubeKey();
 setTimeout(function() {
   console.log(YOUTUBE_API_KEY);
-}, 500);
+}, 5000);
 
 export default class App extends Component {
   constructor(props) {
