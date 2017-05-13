@@ -1,7 +1,12 @@
+const endpoint = 'https://view-tube.herokuapp.com/api/keys/youtube';
+
 const getYouTubeKey = function() {
-  return fetch('https://view-tube.herokuapp.com/api/keys/youtube').then(function(response) {
-    console.log(response);
-    return response;
+  return fetch(endpoint).then(function(response) {
+    if (response.ok) {
+      return response.json();
+    }
+  }).then(function(key) {
+    return key;
   });
 };
 
