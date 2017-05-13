@@ -4,14 +4,7 @@ import Nav from './Nav.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import VideoColumn from './VideoColumn.jsx';
 
-let YOUTUBE_API_KEY;
-
-if (process.env.YOUTUBE_API_KEY) {
-  YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
-} else {
-  import YOUTUBE_KEY from './../config/youtube.js';
-  YOUTUBE_API_KEY = YOUTUBE_KEY;
-}
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || window.YOUTUBE_KEY;
 
 console.log('YouTube Key:', YOUTUBE_API_KEY);
 
