@@ -4,25 +4,8 @@ import Nav from './Nav.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import VideoColumn from './VideoColumn.jsx';
 
-let YOUTUBE_API_KEY;
-(function() {
-  return fetch('https://view-tube.herokuapp.com/api/keys/youtube').then(function(response) {
-    if (response.ok) {
-      return response.json();
-    }
-  }).then(function(key) {
-    console.log('API Key:', key);
-    YOUTUBE_API_KEY = key;
-  });
-})();
-
-setTimeout(function() {
-  console.log('Checking Key:', YOUTUBE_API_KEY);
-}, 8000);
-
 export default class App extends Component {
   constructor(props) {
-    console.log('*** App Props ***', props);
     super(props);
     this.state = {
       video: {},
@@ -33,15 +16,34 @@ export default class App extends Component {
 
   componentDidMount() {
     console.log('*** Initializing App ***');
-    // this.props.searchYouTube({
-    //   query: 'Tracy McGrady',
-    //   key: window.YOUTUBE_API_KEY
-    // }, (videos) => {
-    //   this.setState({
-    //     videos: videos,
-    //     video: videos[0]
-    //   });
-    // });
+    this.searchYouTube({
+      query: 'Tracy McGrady',
+      key: this.props.YOUTUBE_API_KEY
+    }, (videos) => {
+      this.setState({
+        videos: videos,
+        video: videos[0]
+      });
+    });
+  }
+
+  searchYouTube(options, callback) {
+    return fetch('https://www.googleapis.com/youtube/v3/search', {
+      data: {
+        part: 'snippet',
+        maxResults: options.max || 4,
+        q: options.query,
+        type: 'video',
+        videoEmbeddable: true,
+        key: options.key
+      }
+    }).then(function(response) {
+      return response.json();
+    }).then(function(videos) {
+      callback(videos);
+    }).catch(function(error) {
+      console.log('Error:', error.message);
+    });
   }
 
   handleVideoClick(video) {
@@ -51,6 +53,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log('App Props:', this.props);
     return (
       <div className="container">
         <Nav />
