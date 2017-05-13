@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import getYouTubeKey from './../data/youtube.js';
+import YOUTUBE_API_KEY from './../data/youtube.js';
 
 import Nav from './Nav.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import VideoColumn from './VideoColumn.jsx';
 
-const YOUTUBE_API_KEY = getYouTubeKey();
 setTimeout(function() {
   console.log(YOUTUBE_API_KEY);
-}, 5000);
+}, 8000);
 
 export default class App extends Component {
   constructor(props) {
