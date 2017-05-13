@@ -72,27 +72,29 @@ export default class App extends Component {
           changePage={this.changePage} />
 
         {this.state.page === 'home' &&
-        <div className="row">
-          <div className="col-1"></div>
-          <div className="col-10">
-            ROW ONE
+        <main>
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col-10">
+              ROW ONE
+            </div>
+            <div className="col-1"></div>
           </div>
-          <div className="col-1"></div>
-        </div>
-        <div className="row">
-          <div className="col-1"></div>
-          <div className="col-10">
-            ROW TWO
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col-10">
+              ROW TWO
+            </div>
+            <div className="col-1"></div>
           </div>
-          <div className="col-1"></div>
-        </div>
-        <div className="row">
-          <div className="col-1"></div>
-          <div className="col-10">
-            ROW THREE
+          <div className="row">
+            <div className="col-1"></div>
+            <div className="col-10">
+              ROW THREE
+            </div>
+            <div className="col-1"></div>
           </div>
-          <div className="col-1"></div>
-        </div>}
+        </main>}
 
         {this.state.page === 'results' &&
         <main className="row">
