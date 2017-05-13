@@ -54,6 +54,7 @@ export default class App extends Component {
 
   render() {
     console.log('App Props:', this.props);
+    console.log('App State:', this.state);
     return (
       <div className="container">
         <Nav />

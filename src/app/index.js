@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import App from './components/App.jsx';
 
 (function() {
@@ -8,6 +9,7 @@ import App from './components/App.jsx';
       return response.json();
     }
   }).then(function(key) {
+    key = key || window.YOUTUBE_KEY;
     ReactDOM.render(<App YOUTUBE_API_KEY={key} />, document.getElementById('app'));
   });
 })();
