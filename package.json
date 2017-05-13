@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node index.js",
+    "start": "npm run build && node ./index.js",
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,11 +24,11 @@
     "material-components-web": "^0.10.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "webpack": "^2.5.0"
+    "webpack": "^2.5.0",
+    "extract-text-webpack-plugin": "^2.1.0"
   },
   "devDependencies": {
     "css-loader": "^0.28.1",
-    "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0"
