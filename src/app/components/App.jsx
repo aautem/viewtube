@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import $ from 'jquery';
 
 import Nav from './Nav.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
@@ -28,19 +29,22 @@ export default class App extends Component {
   }
 
   searchYouTube(options, callback) {
-    return fetch('https://www.googleapis.com/youtube/v3/search', {
-      part: 'snippet',
-      maxResults: options.max || 4,
-      q: options.query,
-      type: 'video',
-      videoEmbeddable: true,
-      key: options.key
-    }).then(function(response) {
-      return response.json();
-    }).then(function(videos) {
-      callback(videos);
-    }).catch(function(error) {
-      console.log('Error:', error.message);
+    $.ajax('https://www.googleapis.com/youtube/v3/search', {
+      data: {
+        part: 'snippet',
+        maxResults: options.max || 4,
+        q: options.query,
+        type: 'video',
+        videoEmbeddable: true,
+        key: options.key
+      },
+      success: (data, textStatus, jqXHR) => {
+        console.log('Successful Request.');
+        callback(data.items); // Array of videos
+      },
+      error: (jqXHR, textStatus, err) => {
+        console.log(err);
+      }
     });
   }
 
