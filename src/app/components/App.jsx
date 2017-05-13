@@ -14,34 +14,39 @@ export default class App extends Component {
       videos: sampleData
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
+    this.searchYouTube = this.searchYouTube.bind(this);
   }
 
-  componentDidMount() {
-    console.log('*** Initializing App ***');
-    this.searchYouTube({
-      query: 'Tracy McGrady',
-      key: this.props.YOUTUBE_API_KEY
-    }, (videos) => {
-      this.setState({
-        videos: videos,
-        video: videos[0]
-      });
-    });
-  }
+  // componentDidMount() {
+  //   console.log('*** Initializing App ***');
+  //   this.searchYouTube({
+  //     query: 'Tracy McGrady',
+  //     key: this.props.YOUTUBE_API_KEY
+  //   }, (videos) => {
+  //     this.setState({
+  //       videos: videos,
+  //       video: videos[0]
+  //     });
+  //   });
+  // }
 
-  searchYouTube(options, callback) {
+  searchYouTube(query) {
+    var that = this;
     $.ajax('https://www.googleapis.com/youtube/v3/search', {
       data: {
         part: 'snippet',
-        maxResults: options.max || 5,
-        q: options.query,
+        maxResults: 5,
+        q: query,
         type: 'video',
         videoEmbeddable: true,
-        key: options.key
+        key: that.props.YOUTUBE_API_KEY
       },
       success: (data, textStatus, jqXHR) => {
-        console.log('Successful Request.');
-        callback(data.items); // Array of videos
+        console.log('Success:', data.items);
+        that.setState({
+          videos: data.items,
+          video: data.items[0]
+        });
       },
       error: (jqXHR, textStatus, err) => {
         console.log(err);
@@ -67,7 +72,7 @@ export default class App extends Component {
     console.log('App State:', this.state);
     return (
       <div className="container">
-        <Nav />
+        <Nav searchYouTube={this.searchYouTube} />
 
         <main className="row">
           <div className="col-1"></div>
