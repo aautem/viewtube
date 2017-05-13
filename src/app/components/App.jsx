@@ -6,7 +6,32 @@ import VideoColumn from './VideoColumn.jsx';
 
 export default class App extends Component {
   constructor(props) {
+    console.log('*** App Props ***', props);
     super(props);
+    this.state = {
+      video: {},
+      videos: []
+    };
+    this.handleVideoClick = this.handleVideoClick.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('*** Initializing App ***');
+    // this.props.searchYouTube({
+    //   query: 'Tracy McGrady',
+    //   key: window.YOUTUBE_API_KEY
+    // }, (videos) => {
+    //   this.setState({
+    //     videos: videos,
+    //     video: videos[0]
+    //   });
+    // });
+  }
+
+  handleVideoClick(video) {
+    this.setState({
+      video: video
+    });
   }
 
   render() {
