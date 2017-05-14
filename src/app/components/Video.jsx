@@ -4,7 +4,7 @@ const Video = (props) => {
   return (
     <div className="row">
       <div className="video col-12">
-        <iframe src={`https://www.youtube.com/embed/${props.video.id.videoId}`}
+        <iframe src={`https://www.youtube.com/embed/${props.video.id.videoId}?autoplay=1`}
           allowFullScreen></iframe>
       </div>
     </div>

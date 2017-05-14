@@ -8,8 +8,22 @@
   margin: 0;
 }
 
+.nav h3:hover {
+  cursor: pointer;
+  color: gray;
+}
+
 .nav button {
   padding: 7px 15px;
   margin: -5px 0;
   font-size: 0.8em;
+  background-color: #D7D7D7;
+  border: none;
+}
+
+.nav button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: gray;
+  border: none;
 }

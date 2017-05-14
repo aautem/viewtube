@@ -11,7 +11,7 @@ const Nav = (props) => {
       <SearchBar searchYouTube={props.searchYouTube} />
       <div className="col-2">
         <button onClick={props.searchYouTube.bind(null, randomWords())}>
-          Surprise Me
+          Surprise Me!
         </button>
       </div>
     </nav>

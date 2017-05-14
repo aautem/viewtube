@@ -50,10 +50,22 @@ body {
 .nav h3 {
   margin: 0; }
 
+.nav h3:hover {
+  cursor: pointer;
+  color: gray; }
+
 .nav button {
   padding: 7px 15px;
   margin: -5px 0;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  background-color: #D7D7D7;
+  border: none; }
+
+.nav button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: gray;
+  border: none; }
 
 .video-row {
   background-color: white;
@@ -74,9 +86,17 @@ body {
   display: block;
   margin: auto; }
 
+.video-home img:hover {
+  opacity: 0.75;
+  cursor: pointer; }
+
 .video-home h5 {
   font-size: 0.9em;
   margin: 5px 0 -10px 0; }
+
+.video-home h5:hover {
+  cursor: pointer;
+  color: gray; }
 
 .video-home p {
   font-size: 0.8em;
@@ -114,9 +134,17 @@ body {
   display: block;
   margin: auto; }
 
+.video-thumb img:hover {
+  opacity: 0.75;
+  cursor: pointer; }
+
 .video-thumb h5 {
   font-size: 0.9em;
   margin: 5px 0 -10px 0; }
+
+.video-thumb h5:hover {
+  cursor: pointer;
+  color: gray; }
 
 .video-thumb p {
   font-size: 0.8em;

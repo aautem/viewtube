@@ -11,9 +11,19 @@
   margin: auto;
 }
 
+.video-home img:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+
 .video-home h5 {
   font-size: 0.9em;
   margin: 5px 0 -10px 0;
+}
+
+.video-home h5:hover {
+  cursor: pointer;
+  color: gray;
 }
 
 .video-home p {
