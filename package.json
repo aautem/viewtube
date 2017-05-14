@@ -28,6 +28,7 @@
     "material-components-web": "^0.10.0",
     "morgan": "^1.8.1",
     "node-sass": "^4.5.2",
+    "random-words": "0.0.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "sass-loader": "^6.0.5",

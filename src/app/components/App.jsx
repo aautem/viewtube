@@ -3,6 +3,7 @@ import $ from 'jquery';
 import sampleData from './../data/sampleData.js';
 
 import Nav from './Nav.jsx';
+import VideoRow from './VideoRow.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import VideoColumn from './VideoColumn.jsx';
 
@@ -31,7 +32,6 @@ export default class App extends Component {
         key: that.props.YOUTUBE_API_KEY
       },
       success: (data, textStatus, jqXHR) => {
-        console.log('Success:', data.items);
         that.setState({
           page: 'results',
           videos: data.items,
@@ -51,6 +51,7 @@ export default class App extends Component {
       videos[index] = videos[0];
       videos[0] = video;
       return {
+        page: 'results',
         videos: videos,
         video: video
       };
@@ -64,10 +65,9 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('App Props:', this.props);
-    console.log('App State:', this.state);
     return (
       <div className="container">
+
         <Nav searchYouTube={this.searchYouTube}
           changePage={this.changePage} />
 
@@ -75,23 +75,29 @@ export default class App extends Component {
         <main>
           <div className="row">
             <div className="col-1"></div>
-            <div className="col-10">
-              ROW ONE
-            </div>
+
+              <VideoRow title={'React'}
+                videos={this.state.videos}
+                handleVideoClick={this.handleVideoClick} />
+
             <div className="col-1"></div>
           </div>
           <div className="row">
             <div className="col-1"></div>
-            <div className="col-10">
-              ROW TWO
-            </div>
+
+              <VideoRow title={'Redux'}
+                videos={this.state.videos}
+                handleVideoClick={this.handleVideoClick} />
+
             <div className="col-1"></div>
           </div>
           <div className="row">
             <div className="col-1"></div>
-            <div className="col-10">
-              ROW THREE
-            </div>
+
+              <VideoRow title={'React Router'}
+                videos={this.state.videos}
+                handleVideoClick={this.handleVideoClick} />
+
             <div className="col-1"></div>
           </div>
         </main>}

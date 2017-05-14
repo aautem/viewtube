@@ -55,6 +55,33 @@ body {
   margin: -5px 0;
   font-size: 0.8em; }
 
+.video-row {
+  background-color: white;
+  margin-top: 15px; }
+
+.video-row h2 {
+  margin: -15px 0;
+  padding: 0; }
+
+.video-home {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  text-align: left; }
+
+.video-home img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto; }
+
+.video-home h5 {
+  font-size: 0.9em;
+  margin: 5px 0 -10px 0; }
+
+.video-home p {
+  font-size: 0.8em;
+  margin-bottom: -10px; }
+
 .video {
   position: relative;
   padding-bottom: 56.25%;
@@ -74,8 +101,7 @@ body {
   padding: 6px 0 6px 10px;
   margin-top: -4px;
   width: 50%;
-  border: 1px solid #969696;
-  color: gray; }
+  border: 1px solid #969696; }
 
 .video-thumb {
   margin: auto;

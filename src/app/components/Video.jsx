@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Video = (props) => {
-  console.log('Video Props:', props);
   return (
     <div className="row">
       <div className="video col-12">

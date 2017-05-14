@@ -3,7 +3,7 @@ import VideoThumb from './VideoThumb.jsx';
 
 const VideoColumn = (props) => {
   return (
-    <div className="video-column col-4">
+    <div className="col-4">
       <VideoThumb video={props.videos[1]}
         handleVideoClick={props.handleVideoClick}
         index={1} />

@@ -3,7 +3,6 @@ import Video from './Video.jsx';
 import VideoInfo from './VideoInfo.jsx';
 
 const VideoPlayer = (props) => {
-  console.log('VideoPlayer Props:', props);
   return (
     <div className="col-6">
       <Video video={props.video} />
