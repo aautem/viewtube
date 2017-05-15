@@ -1,25 +1,22 @@
 import React from 'react';
+import {List, ListItem} from 'material-ui/List';
+
 import VideoThumb from './VideoThumb.jsx';
 
 const VideoColumn = (props) => {
   return (
-    <div className="col-4">
-      <VideoThumb video={props.videos[1]}
-        handleVideoClick={props.handleVideoClick}
-        index={1} />
-      <div className="row"><br /></div>
-      <VideoThumb video={props.videos[2]}
-        handleVideoClick={props.handleVideoClick}
-        index={2} />
-      <div className="row"><br /></div>
-      <VideoThumb video={props.videos[3]}
-        handleVideoClick={props.handleVideoClick}
-        index={3} />
-      <div className="row"><br /></div>
-      <VideoThumb video={props.videos[4]}
-        handleVideoClick={props.handleVideoClick}
-        index={4} />
-    </div>
+    <List style={{width: "35%", display: "inline-block", margin: "10px 0 0 25px", verticalAlign: "top", backgroundColor: "white"}}>
+      {props.videos.slice(1).map((video, index) => {
+        return (
+          <VideoThumb
+            video={video}
+            key={index}
+            index={index}
+            handleVideoClick={props.handleVideoClick}
+          />
+        );
+      })}
+    </List>
   );
 };
 

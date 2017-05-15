@@ -1,17 +1,15 @@
 import React from 'react';
+import {List, ListItem} from 'material-ui/List';
 
 const VideoThumb = (props) => {
   return (
-    <div onClick={props.handleVideoClick.bind(null, props.video, props.index)} className="video-thumb row">
-      <div className="col-5">
-        <img src={props.video.snippet.thumbnails.high.url}
-          alt="" />
-      </div>
-      <div className="col-7">
-        <h5>{props.video.snippet.title}</h5>
-        <p>{props.video.snippet.channelTitle}</p>
-      </div>
-    </div>
+    <ListItem
+      primaryText={props.video.snippet.title}
+      secondaryText={props.video.snippet.channelTitle}
+      onClick={props.handleVideoClick.bind(null, props.video, props.index)}
+    >
+      <img src={props.video.snippet.thumbnails.default.url} />
+    </ListItem>
   );
 };
 

@@ -10,16 +10,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Nav from './Nav.jsx';
 import SearchBar from './SearchBar.jsx';
 import VideoRow from './VideoRow.jsx';
-
-import {List, ListItem} from 'material-ui/List';
-
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText} from 'material-ui/Card';
+import VideoPlayer from './VideoPlayer.jsx';
+import VideoColumn from './VideoColumn.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -137,44 +129,11 @@ export default class App extends Component {
 
           {this.state.page === 'results' &&
           <div>
-            <Card style={{width: "60%", display: "inline-block", margin: "10px 0 0 20px", verticalAlign: "top"}}>
-              <CardMedia className="video">
-                <iframe
-                  src={`https://www.youtube.com/embed/${this.state.video.id.videoId}`}
-                  allowFullScreen>
-                </iframe>
-              </CardMedia>
-              <CardTitle title={this.state.video.snippet.title} subtitle={this.state.video.snippet.channelTitle} />
-              <CardText>{this.state.video.snippet.description}</CardText>
-            </Card>
-
-            <List style={{width: "35%", display: "inline-block", margin: "10px 0 0 25px", verticalAlign: "top", backgroundColor: "white"}}>
-              <ListItem
-                primaryText={this.state.videos[1].snippet.title}
-                secondaryText={this.state.videos[1].snippet.channelTitle}
-                onClick={function() {console.log('CLICKED!')}}
-              >
-                <img src={this.state.videos[1].snippet.thumbnails.default.url} />
-              </ListItem>
-              <ListItem
-                primaryText={this.state.videos[2].snippet.title}
-                secondaryText={this.state.videos[2].snippet.channelTitle}
-              >
-                <img src={this.state.videos[2].snippet.thumbnails.default.url} />
-              </ListItem>
-              <ListItem
-                primaryText={this.state.videos[3].snippet.title}
-                secondaryText={this.state.videos[3].snippet.channelTitle}
-              >
-                <img src={this.state.videos[3].snippet.thumbnails.default.url} />
-              </ListItem>
-              <ListItem
-                primaryText={this.state.videos[4].snippet.title}
-                secondaryText={this.state.videos[4].snippet.channelTitle}
-              >
-                <img src={this.state.videos[4].snippet.thumbnails.default.url} />
-              </ListItem>
-            </List>
+            <VideoPlayer video={this.state.video} />
+            <VideoColumn
+              videos={this.state.videos}
+              handleVideoClick={this.handleVideoClick}
+            />
           </div>}
         </div>
       </MuiThemeProvider>
