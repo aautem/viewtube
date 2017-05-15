@@ -1,22 +1,24 @@
 import React from 'react';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText} from 'material-ui/Card';
 
 const VideoHome = (props) => {
   return (
-    <div onClick={props.handleVideoClick.bind(null, props.video, props.index)}
-      className="video-home col-3">
-      <div className="row">
-        <div className="col-12">
-          <img src={props.video.snippet.thumbnails.high.url}
-            alt="" />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <h5>{props.video.snippet.title}</h5>
-          <p>{props.video.snippet.channelTitle}</p>
-        </div>
-      </div>
-    </div>
+    <Card style={{width: "23%", display: "inline-block", margin: "0 10px", verticalAlign: "top"}}>
+      <CardHeader
+        title={props.video.snippet.title}
+        subtitle={props.video.snippet.channelTitle}
+      />
+      <CardMedia onClick={props.handleVideoClick.bind(null, props.video, props.index)}>
+        <img src={props.video.snippet.thumbnails.high.url} />
+      </CardMedia>
+      <CardText>{props.video.snippet.description}</CardText>
+    </Card>
   );
 };
 
