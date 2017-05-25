@@ -15,6 +15,8 @@ const Home = (props) => {
         />
       </div>
 
+      <hr />
+
       <div className="col-12">
         <h1 className="home__header">Redux Tutorials</h1>
       </div>
@@ -25,6 +27,8 @@ const Home = (props) => {
           handleVideoClick={props.handleVideoClick}
         />
       </div>
+
+      <hr />
 
       <div className="col-12">
         <h1 className="home__header">React Router Tutorials</h1>

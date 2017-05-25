@@ -2,7 +2,7 @@ $primary-color: #b0bec5;
 $text-color: #000000;
 
 .home {
-  padding: 0;
+  padding: 5px 0;
   background-color: $primary-color;
   color: $text-color;
 }
@@ -11,4 +11,5 @@ $text-color: #000000;
   letter-spacing: 2px;
   font-size: 1.25em;
   margin-left: 15px;
+  margin-bottom: -12px;
 }

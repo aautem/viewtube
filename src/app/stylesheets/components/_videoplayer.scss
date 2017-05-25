@@ -3,6 +3,7 @@ $secondary-color: #616161;
 
 .videoplayer {
   padding: 0;
+  box-shadow: -1px 1px 5px $secondary-color;
 }
 
 .videoplayer__video {
@@ -11,7 +12,6 @@ $secondary-color: #616161;
   padding-top: 30px;
   height: 0;
   overflow: hidden;
-  box-shadow: -1px 1px 5px $secondary-color;
 
   iframe {
     position: absolute;
@@ -23,9 +23,7 @@ $secondary-color: #616161;
 }
 
 .videoplayer__info {
-  margin-top: 10px;
   background-color: $primary-color;
-  box-shadow: -1px 1px 5px $secondary-color;
 
   h2 {
     margin: 0;

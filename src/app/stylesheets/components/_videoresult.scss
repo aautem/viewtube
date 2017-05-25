@@ -1,5 +1,8 @@
+$secondary-color: #616161;
+
 .videoresult {
   background-color: #ffffff;
+  box-shadow: -1px 1px 5px $secondary-color;
 
   img {
     width: 100%;
