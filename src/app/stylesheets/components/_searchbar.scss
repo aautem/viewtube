@@ -1,3 +1,7 @@
+$primary-color: #01579b;
+$button-color: #ffff00;
+$button-hover-color: #ffd600;
+
 .searchbar {
   padding: 0;
 }
@@ -5,9 +9,27 @@
 .searchbar__input {
   width: 100%;
   font-size: 1em;
+  padding: 8px 5px;
 }
 
 .searchbar__button {
-  width: 100%;
-  font-size: 1em;
+  button {
+    color: $primary-color;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+    background-color: $button-color;
+    &:active {
+      background-color: $button-hover-color;
+    }
+  }
+}
+
+/* For mobile: */
+@media only screen and (max-width: 768px) {
+  .searchbar {
+
+  }
 }

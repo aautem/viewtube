@@ -1,8 +1,33 @@
 $primary-color: #01579b;
 $text-color: #ffffff;
+$link-color: #ffff00;
+$link-hover-color: #ffd600;
 
 .footer {
-  padding: 0;
+  padding: 20px 25px;
   background-color: $primary-color;
-  color: $text-color;
+
+  h6 {
+    float: right;
+    color: $text-color;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    font-weight: 300;
+    display: inline-block;
+    margin: 0;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-left: 5px;
+    color: $link-color;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
 }

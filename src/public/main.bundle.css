@@ -7,6 +7,10 @@
   float: left;
   padding: 10px; }
 
+.col-1 {
+  min-height: 1px;
+  padding: 0 10px; }
+
 /* For desktop: */
 @media only screen and (min-width: 768px) {
   .col-1 {
@@ -51,28 +55,45 @@ h1 {
 
 .nav {
   padding: 0;
-  background-color: #01579b;
-  color: #ffffff; }
+  background-color: #01579b; }
 
 .nav__logo {
-  font-size: 2em;
-  font-weight: 300;
-  text-align: center;
-  padding-top: 3px; }
+  padding: 21px 0; }
   .nav__logo:hover {
     cursor: pointer; }
+  .nav__logo h1 {
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    color: #ffff00;
+    letter-spacing: 2px; }
 
 .nav__button {
-  width: 100%;
-  margin-top: 10px;
-  font-size: 1em; }
+  padding: 20px 20px; }
+  .nav__button button {
+    color: #01579b;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #ffff00; }
+    .nav__button button:active {
+      background-color: #ffd600; }
+
+/* For mobile: */
+@media only screen and (max-width: 768px) {
+  .nav__logo {
+    padding-bottom: 0; }
+  .nav__button {
+    padding-top: 0; } }
 
 .home {
   padding: 5px 0;
-  background-color: #b0bec5;
-  color: #000000; }
+  background-color: #b0bec5; }
 
 .home__header {
+  color: #01579b;
   letter-spacing: 2px;
   font-size: 1.25em;
   margin-left: 15px;
@@ -84,21 +105,48 @@ h1 {
   color: #000000; }
 
 .footer {
-  padding: 0;
-  background-color: #01579b;
-  color: #ffffff; }
+  padding: 20px 25px;
+  background-color: #01579b; }
+  .footer h6 {
+    float: right;
+    color: #ffffff;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    font-weight: 300;
+    display: inline-block;
+    margin: 0; }
+  .footer a {
+    display: inline-block;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-left: 5px;
+    color: #ffff00;
+    text-transform: uppercase;
+    text-decoration: none; }
+    .footer a:hover {
+      color: #ffd600; }
 
 .searchbar {
   padding: 0; }
 
 .searchbar__input {
   width: 100%;
-  font-size: 1em; }
+  font-size: 1em;
+  padding: 8px 5px; }
 
-.searchbar__button {
+.searchbar__button button {
+  color: #01579b;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 600;
+  padding: 10px 0;
   width: 100%;
-  font-size: 1em; }
+  background-color: #ffff00; }
+  .searchbar__button button:active {
+    background-color: #ffd600; }
 
+/* For mobile: */
 .videorow {
   padding: 0; }
 

@@ -9,10 +9,8 @@ const SearchBar = (props) => {
           placeholder="e.g. JavaScript"></input>
       </div>
 
-      <div className="col-3">
-        <button
-          className="searchbar__button"
-          onClick={props.searchButtonClick}>Search</button>
+      <div className="searchbar__button col-3">
+        <button onClick={props.searchButtonClick}>Search</button>
       </div>
     </div>
   );

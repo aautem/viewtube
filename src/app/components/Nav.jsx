@@ -4,10 +4,8 @@ import SearchBar from './SearchBar.jsx';
 const Nav = (props) => {
   return (
     <div className="nav col-12">
-      <div className="col-2">
-        <h1
-          className="nav__logo"
-          onClick={props.goHome}>ViewTube</h1>
+      <div className="nav__logo col-2">
+        <h1 onClick={props.goHome}>ViewTube</h1>
       </div>
 
       <div className="col-1"></div>
@@ -18,9 +16,8 @@ const Nav = (props) => {
 
       <div className="col-1"></div>
 
-      <div className="col-2">
+      <div className="nav__button col-2">
         <button
-          className="nav__button"
           onClick={props.getRandomVideo}>Surprise Me!</button>
       </div>
     </div>

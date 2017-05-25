@@ -1,24 +1,51 @@
 $primary-color: #01579b;
-$text-color: #ffffff;
+$button-color: #ffff00;
+$button-hover-color: #ffd600;
 
 .nav {
   padding: 0;
   background-color: $primary-color;
-  color: $text-color;
 }
 
 .nav__logo {
-  font-size: 2em;
-  font-weight: 300;
-  text-align: center;
-  padding-top: 3px;
+  padding: 21px 0;
   &:hover {
     cursor: pointer;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    color: $button-color;
+    letter-spacing: 2px;
   }
 }
 
 .nav__button {
-  width: 100%;
-  margin-top: 10px;
-  font-size: 1em;
+  padding: 20px 20px;
+
+  button {
+    color: $primary-color;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+    background-color: $button-color;
+    &:active {
+      background-color: $button-hover-color;
+    }
+  }
+}
+
+/* For mobile: */
+@media only screen and (max-width: 768px) {
+  .nav__logo {
+    padding-bottom: 0;
+  }
+
+  .nav__button {
+    padding-top: 0;
+  }
 }

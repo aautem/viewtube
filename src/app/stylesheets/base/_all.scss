@@ -9,6 +9,11 @@
   padding: 10px;
 }
 
+.col-1 {
+  min-height: 1px;
+  padding: 0 10px;
+}
+
 /* For desktop: */
 @media only screen and (min-width: 768px) {
   .col-1 {width: 8.33%;}
