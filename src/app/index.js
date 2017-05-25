@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App.jsx';
+import App from './components/App.jsx';
 
 // const endpoint = 'https://view-tube.herokuapp.com/api/keys/youtube';
 const endpoint = 'http://localhost:3000/api/keys/youtube';

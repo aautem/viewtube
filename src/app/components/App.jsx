@@ -6,10 +6,10 @@ import reactVideos from './../data/reactVideos';
 import reduxVideos from './../data/reduxVideos';
 import routerVideos from './../data/routerVideos';
 
-import Nav from './../components/Nav.jsx';
-import Home from './../components/Home.jsx';
-import Results from './../components/Results.jsx';
-import Footer from './../components/Footer.jsx';
+import Nav from './Nav.jsx';
+import Home from './Home.jsx';
+import Results from './Results.jsx';
+import Footer from './Footer.jsx';
 
 export default class App extends Component {
   constructor(props) {
