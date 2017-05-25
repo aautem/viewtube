@@ -5,10 +5,10 @@
 [class*="col-"] {
   width: 100%;
   float: left;
-  padding: 15px; }
+  padding: 10px; }
 
+/* For desktop: */
 @media only screen and (min-width: 768px) {
-  /* For desktop: */
   .col-1 {
     width: 8.33%; }
   .col-2 {
@@ -40,31 +40,108 @@
   display: table; }
 
 body {
-  background-color: #bbdefb; }
+  margin: 0; }
 
-.search-bar {
-  background-color: white; }
+h1 {
+  margin: 0; }
 
-.video-row {
-  margin-top: 20px; }
+.container {
+  width: 100%;
+  margin: 0 auto; }
 
-h2 {
-  margin-left: 20px; }
+.nav {
+  padding: 0;
+  background-color: #01579b;
+  color: #ffffff; }
 
-.video-row img:hover {
-  cursor: pointer;
-  opacity: 0.5; }
+.nav__logo {
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+  padding-top: 3px; }
+  .nav__logo:hover {
+    cursor: pointer; }
 
-.video {
+.nav__button {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1em; }
+
+.home {
+  padding: 0;
+  background-color: #b0bec5;
+  color: #000000; }
+
+.home__header {
+  letter-spacing: 2px;
+  font-size: 1.25em;
+  margin-left: 15px; }
+
+.results {
+  padding: 0;
+  background-color: #b0bec5;
+  color: #000000; }
+
+.searchbar {
+  padding: 0; }
+
+.searchbar__input {
+  width: 100%;
+  font-size: 1em; }
+
+.searchbar__button {
+  width: 100%;
+  font-size: 1em; }
+
+.videorow {
+  padding: 0; }
+
+.videocolumn {
+  padding: 0;
+  box-shadow: -1px 1px 5px #616161; }
+
+.videoresult {
+  background-color: #ffffff; }
+  .videoresult img {
+    width: 100%;
+    height: auto; }
+    .videoresult img:hover {
+      cursor: pointer;
+      opacity: 0.75; }
+  .videoresult h4 {
+    margin: 5px 0; }
+  .videoresult h6 {
+    color: grey;
+    margin: 0; }
+
+.videoplayer {
+  padding: 0; }
+
+.videoplayer__video {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  box-shadow: -1px 1px 5px #616161; }
+  .videoplayer__video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
-.video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
+.videoplayer__info {
+  margin-top: 10px;
+  background-color: #ffffff;
+  box-shadow: -1px 1px 5px #616161; }
+  .videoplayer__info h2 {
+    margin: 0;
+    padding: 10px 0 5px 10px; }
+  .videoplayer__info h4 {
+    color: #616161;
+    margin: 0;
+    padding: 0 0 5px 10px; }
+  .videoplayer__info p {
+    margin: 0;
+    padding: 10px 0 20px 10px; }

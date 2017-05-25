@@ -1,24 +1,19 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 
 const SearchBar = (props) => {
   return (
-    <div className="search-bar">
-      <TextField
-        id="search-field"
-        hintText="e.g. JavaScript"
-        floatingLabelText="Search ViewTube"
-        floatingLabelFixed={true}
-        style={{marginLeft: "20px", marginTop: "-10px", width: "50%"}}
-      />
+    <div className="searchbar">
+      <div className="col-9">
+        <input
+          className="searchbar__input"
+          placeholder="e.g. JavaScript"></input>
+      </div>
 
-      <RaisedButton
-        label="Search"
-        primary={true}
-        style={{marginLeft: "20px"}}
-        onTouchTap={props.searchButtonClick}
-      />
+      <div className="col-3">
+        <button
+          className="searchbar__button"
+          onClick={props.searchButtonClick}>Search</button>
+      </div>
     </div>
   );
 };

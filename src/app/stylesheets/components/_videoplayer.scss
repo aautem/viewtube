@@ -1,0 +1,45 @@
+$primary-color: #ffffff;
+$secondary-color: #616161;
+
+.videoplayer {
+  padding: 0;
+}
+
+.videoplayer__video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  box-shadow: -1px 1px 5px $secondary-color;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.videoplayer__info {
+  margin-top: 10px;
+  background-color: $primary-color;
+  box-shadow: -1px 1px 5px $secondary-color;
+
+  h2 {
+    margin: 0;
+    padding: 10px 0 5px 10px;
+  }
+
+  h4 {
+    color: $secondary-color;
+    margin: 0;
+    padding: 0 0 5px 10px;
+  }
+
+  p {
+    margin: 0;
+    padding: 10px 0 20px 10px;
+  }
+}

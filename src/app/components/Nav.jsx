@@ -1,16 +1,32 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
+import SearchBar from './SearchBar.jsx';
 
 const Nav = (props) => {
   return (
-    <AppBar
-      title={<span onClick={props.changePage.bind(null, 'home')} style={{cursor: "pointer"}}>ViewTube</span>}
-      showMenuIconButton={false}
-      iconElementRight={<FlatButton label="Surprise Me!" />}
-      onRightIconButtonTouchTap={props.getRandomVideo}
-      style={{backgroundColor: "#0d47a1"}}
-    />
+    <div className="nav col-12">
+      <div className="col-2">
+        <h1
+          className="nav__logo"
+          onClick={props.changePage.bind(null, 'home')}>ViewTube</h1>
+      </div>
+
+      <div className="col-1"></div>
+
+      <div className="col-6">
+        <SearchBar
+          changePage={props.changePage}
+          searchButtonClick={props.searchButtonClick}
+        />
+      </div>
+
+      <div className="col-1"></div>
+
+      <div className="col-2">
+        <button
+          className="nav__button"
+          onClick={props.getRandomVideo}>Surprise Me!</button>
+      </div>
+    </div>
   );
 };
 

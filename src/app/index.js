@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import App from './components/App.jsx';
 
-injectTapEventPlugin();
-
-const endpoint = 'https://view-tube.herokuapp.com/api/keys/youtube';
+// const endpoint = 'https://view-tube.herokuapp.com/api/keys/youtube';
+const endpoint = 'http://localhost:3000/api/keys/youtube';
 
 (function() {
   return fetch(endpoint).then(function(response) {

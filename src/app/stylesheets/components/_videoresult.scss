@@ -1,0 +1,21 @@
+.videoresult {
+  background-color: #ffffff;
+
+  img {
+    width: 100%;
+    height: auto;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.75;
+    }
+  }
+
+  h4 {
+    margin: 5px 0;
+  }
+
+  h6 {
+    color: grey;
+    margin: 0;
+  }
+}

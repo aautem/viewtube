@@ -1,22 +1,24 @@
 import React from 'react';
-import VideoHome from './VideoHome.jsx';
+import VideoResult from './VideoResult.jsx';
 
 const VideoRow = (props) => {
   return (
-    <div className="video-row">
+    <div className="videorow col-12">
+      <div className="col-1"></div>
+
       {props.videos.map((video, index) => {
-        if (index !== 4) {
-          return (
-            <VideoHome
+        return (
+          <div className="col-2" key={video.id.videoId}>
+            <VideoResult
               video={video}
-              key={video.id.videoId}
               index={index}
-              videos={props.vides}
               handleVideoClick={props.handleVideoClick}
             />
-          );
-        }
+          </div>
+        );
       })}
+
+      <div className="col-1"></div>
     </div>
   );
 };
