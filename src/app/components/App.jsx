@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import $ from 'jquery';
 import randomWords from 'random-words';
+import axios from 'axios';
 
 import reactVideos from './../data/reactVideos';
 import reduxVideos from './../data/reduxVideos';
@@ -29,7 +29,8 @@ export default class App extends Component {
   componentDidMount() {
     console.log('Component Mounted.');
     var that = this;
-    $('.searchbar__input').on('keyup', function(e) {
+    var input = document.getElementsByClassName('searchbar__input')[0];
+    input.addEventListener('keyup', function(e) {
       if (e.keyCode === 13) {
         var query = e.target.value;
         e.target.value = '';
@@ -41,25 +42,25 @@ export default class App extends Component {
   searchYouTube(query) {
     console.log('Searching YouTube.');
     var that = this;
-    $.ajax('https://www.googleapis.com/youtube/v3/search', {
-      data: {
+    axios.get('https://www.googleapis.com/youtube/v3/search', {
+      params: {
         part: 'snippet',
         maxResults: 5,
         q: query,
         type: 'video',
         videoEmbeddable: true,
         key: that.props.YOUTUBE_API_KEY
-      },
-      success: (data, textStatus, jqXHR) => {
-        that.setState({
-          page: 'results',
-          videos: data.items,
-          video: data.items[0]
-        });
-      },
-      error: (jqXHR, textStatus, err) => {
-        console.log(err);
       }
+    })
+    .then((response) => {
+      that.setState({
+        page: 'results',
+        videos: response.data.items,
+        video: response.data.items[0]
+      });
+    })
+    .catch((err) => {
+      console.log('Error:', err);
     });
   }
 
