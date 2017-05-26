@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function goHome() {
   return {
     type: 'GO_HOME',
@@ -7,20 +9,18 @@ export function goHome() {
 
 export function fetchVideos(query) {
   return function(dispatch) {
-    axios({
-      method: 'get',
-      url: 'https://www.googleapis.com/youtube/v3/search',
-      data: {
+    axios.get('https://www.googleapis.com/youtube/v3/search', {
+      params: {
         part: 'snippet',
         maxResults: 5,
         q: query,
         type: 'video',
         videoEmbeddable: true,
-        key: window.YOUTUBE_KEY
+        key: window.YOUTUBE_API_KEY
       }
     })
     .then((response) => {
-      dispatch({type: 'FETCH_VIDEOS', payload: response.data});
+      dispatch({type: 'FETCH_VIDEOS', payload: response.data.items});
     })
     .catch((err) => {
       dispatch({type: 'FETCH_ERROR', payload: err});

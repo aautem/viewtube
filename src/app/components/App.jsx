@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import randomWords from 'random-words';
-import axios from 'axios';
 
 import reactVideos from './../data/reactVideos';
 import reduxVideos from './../data/reduxVideos';
@@ -11,21 +11,21 @@ import Home from './Home.jsx';
 import Results from './Results.jsx';
 import Footer from './Footer.jsx';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: 'home',
-      video: reactVideos[0],
-      videos: reactVideos
-    };
-    this.handleVideoClick = this.handleVideoClick.bind(this);
-    this.searchYouTube = this.searchYouTube.bind(this);
-    this.searchButtonClick = this.searchButtonClick.bind(this);
-    this.getRandomVideo = this.getRandomVideo.bind(this);
-    this.goHome = this.goHome.bind(this);
-  }
+import {
+  goHome,
+  fetchVideos,
+  updateVideos
+} from './../actions/videoDataActions';
 
+@connect((store) => {
+  return {
+    page: store.page,
+    video: store.video,
+    videos: store.videos
+  };
+})
+
+export default class App extends Component {
   componentDidMount() {
     console.log('Component Mounted.');
     var that = this;
@@ -34,97 +34,58 @@ export default class App extends Component {
       if (e.keyCode === 13) {
         var query = e.target.value;
         e.target.value = '';
-        that.searchYouTube(query);
+        that.props.dispatch(fetchVideos(query));
       }
-    });
-  }
-
-  searchYouTube(query) {
-    console.log('Searching YouTube.');
-    var that = this;
-    axios.get('https://www.googleapis.com/youtube/v3/search', {
-      params: {
-        part: 'snippet',
-        maxResults: 5,
-        q: query,
-        type: 'video',
-        videoEmbeddable: true,
-        key: that.props.YOUTUBE_API_KEY
-      }
-    })
-    .then((response) => {
-      that.setState({
-        page: 'results',
-        videos: response.data.items,
-        video: response.data.items[0]
-      });
-    })
-    .catch((err) => {
-      console.log('Error:', err);
     });
   }
 
   // videos array: put (video) in [0], put [0] in (video) spot
   handleVideoClick(video, index) {
-    console.log('Handling Video Click.');
-    this.setState(function(prevState) {
-      var videos = prevState.videos.slice();
-      videos[index] = videos[0];
-      videos[0] = video;
-      return {
-        page: 'results',
-        videos: videos,
-        video: video
-      };
-    });
+    var videos = this.props.videos.slice();
+    videos[index] = videos[0];
+    videos[0] = video;
+    this.props.dispatch(updateVideos(videos));
   }
 
   searchButtonClick() {
-    console.log('Search Button Clicked.');
     var input = document.getElementsByClassName('searchbar__input')[0];
     var query = input.value;
     input.value = '';
-    this.searchYouTube(query);
+    this.props.dispatch(fetchVideos(query));
   }
 
   getRandomVideo() {
-    console.log('Getting Random Video.');
     var word = randomWords();
-    this.searchYouTube(word);
+    this.props.dispatch(fetchVideos(word));
   }
 
   goHome() {
-    console.log('Routing to Home.');
-    this.setState({
-      page: 'home',
-      video: reactVideos[0],
-      videos: reactVideos
-    });
+    this.props.dispatch(goHome());
   }
 
   render() {
     return (
       <div className="container">
         <Nav
-          goHome={this.goHome}
-          getRandomVideo={this.getRandomVideo}
-          searchButtonClick={this.searchButtonClick}
+          goHome={this.goHome.bind(this)}
+          getRandomVideo={this.getRandomVideo.bind(this)}
+          searchButtonClick={this.searchButtonClick.bind(this)}
         />
 
-        {this.state.page === 'home' &&
+        {this.props.page === 'home' &&
           <Home
             firstRow={reactVideos}
             secondRow={reduxVideos}
             thirdRow={routerVideos}
-            handleVideoClick={this.handleVideoClick}
+            handleVideoClick={this.handleVideoClick.bind(this)}
           />
         }
 
-        {this.state.page === 'results' &&
+        {this.props.page === 'results' &&
           <Results
-            video={this.state.video}
-            videos={this.state.videos}
-            handleVideoClick={this.handleVideoClick}
+            video={this.props.video}
+            videos={this.props.videos}
+            handleVideoClick={this.handleVideoClick.bind(this)}
           />
         }
 

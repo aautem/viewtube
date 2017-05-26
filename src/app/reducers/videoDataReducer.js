@@ -1,36 +1,37 @@
 import reactVideos from './../data/reactVideos';
 
-export default function reducer(state={
+const initialState = {
   page: 'home',
   video: reactVideos[0],
   videos: reactVideos
-}, action) {
+};
+
+export default function videoDataReducer(state = initialState, action) {
   switch (action.type) {
-    case 'GO_HOME': {
+    case 'GO_HOME':
       return {
         ...state,
         page: 'home',
         video: reactVideos[0],
         videos: reactVideos
       };
-    }
-    case 'FETCH_VIDEOS': {
+    case 'FETCH_VIDEOS':
       return {
         ...state,
         page: 'results',
         video: action.payload[0],
         videos: action.payload
       };
-    }
-    case 'SWITCH_VIDEOS': {
+    case 'SWITCH_VIDEOS':
       return {
         ...state,
+        page: 'results',
         video: action.payload[0],
         videos: action.payload
       };
-    }
-    case 'FETCH_ERROR': {
-      return {...state};
-    }
+    case 'FETCH_ERROR':
+      return state;
+    default:
+      return state;
   }
 }
